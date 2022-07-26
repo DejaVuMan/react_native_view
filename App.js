@@ -6,18 +6,42 @@
  * @flow strict-local
  */
 
-import React from 'react';
+import React, { Component } from 'react';
 import type {Node} from 'react';
 
 import { Provider as PaperProvider } from 'react-native-paper';
 import { LoginScreen } from './app/screens/login/login.screen';
 import { theme } from './App.style';
 
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import { NavigationContainer } from '@react-navigation/native';
+import DrawerItems from './app/screens/components/DrawerItems';
+
+const Drawer = createDrawerNavigator();
+
 const App: () => Node = () => {
   return (
-    <PaperProvider theme= {theme}>
-      <LoginScreen/>
-    </PaperProvider>
+    <NavigationContainer>
+      <Drawer.Navigator
+      drawerType="front"
+      initialRouteName="Login"
+      screenOptions={{
+        activeTintColor: '#e91e63',
+        itemStyle: { marginVertical: 10},
+      }}
+      >
+        {
+          DrawerItems.map(drawer=><Drawer.Screen
+            key={drawer.name}
+            name={drawer.name}
+            component={
+              drawer.name==='login' ? LoginScreen
+                : LoginScreen
+            } 
+          />)
+        }
+      </Drawer.Navigator>
+    </NavigationContainer>
   );
 };
 
