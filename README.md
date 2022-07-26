@@ -7,3 +7,5 @@ To build it, ensure you have npm installed on your device to download all packag
 After installing all packages and launching a virtual android device from Android Studio, simply open the folder you have downloaded the code into and type into
 a powershell window the following command: ``npx react-native run-android`` - this should launch everything that is needed to bundle and compile the app
 onto the virtual device you're running.
+
+![alt text](https://i.imgur.com/PSTzc1L.png)
