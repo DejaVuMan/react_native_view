@@ -11,6 +11,7 @@ import type {Node} from 'react';
 
 import { Provider as PaperProvider } from 'react-native-paper';
 import { LoginScreen } from './app/screens/login/login.screen';
+import { HomeScreen } from './app/screens/home/home.screen';
 import { theme } from './App.style';
 
 import { createDrawerNavigator } from '@react-navigation/drawer';
@@ -35,7 +36,8 @@ const App: () => Node = () => {
             key={drawer.name}
             name={drawer.name}
             component={
-              drawer.name==='login' ? LoginScreen
+              drawer.name==='Login' ? LoginScreen
+                : drawer.name==='Home' ? HomeScreen
                 : LoginScreen
             } 
           />)

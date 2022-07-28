@@ -1,9 +1,10 @@
 import React from 'react';
 import { SafeAreaView, View } from 'react-native';
 import { Card, TextInput, Button } from 'react-native-paper';
+import { HomeScreen } from '../home/home.screen';
 import { loginStyle } from './login.style';
 
-export const LoginScreen: () => Node = () => {
+export const LoginScreen: () => Node = ({navigation}) => {
     return (
         <SafeAreaView style={loginStyle.content}>
             <View style={loginStyle.view}>
@@ -13,7 +14,10 @@ export const LoginScreen: () => Node = () => {
                         <TextInput label="Email" keyboardType="email-address"></TextInput>
                         <TextInput label="Password" secureTextEntry={true}></TextInput>
                         <Button uppercase={false} style={loginStyle.cardButton}>Forgot email/password?</Button>
-                        <Button mode="contained" style={loginStyle.cardButton}>Login</Button>
+                        <Button mode="contained" 
+                        style={loginStyle.cardButton}
+                        onPress={() => navigation.navigate('Home')}
+                        >Login</Button>
                     </Card.Content>
                 </Card>
             </View>
