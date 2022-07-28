@@ -6,7 +6,7 @@
  * @flow strict-local
  */
 
-import React, { Component } from 'react';
+import React, { Component, useState, useContext } from 'react';
 import type {Node} from 'react';
 
 import { Provider as PaperProvider } from 'react-native-paper';
@@ -21,6 +21,7 @@ import DrawerItems from './app/screens/components/DrawerItems';
 const Drawer = createDrawerNavigator();
 
 const App: () => Node = () => {
+
   return (
     <NavigationContainer>
       <Drawer.Navigator
